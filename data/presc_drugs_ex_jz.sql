@@ -54,6 +54,7 @@ INNER JOIN prescription
 GROUP BY specialty_description
 ORDER BY total_claims DESC;
 
+--another solution
 SELECT specialty_description AS specialty,
 	SUM(total_claim_count) AS total_claims
 FROM prescriber
@@ -65,6 +66,7 @@ WHERE opioid_drug_flag = 'Y'
 GROUP BY specialty_description
 ORDER BY total_claims DESC;
 
+
 /*2. c. **Challenge Question:** Are there any specialties that appear in the prescriber table that have no associated prescriptions in the prescription table?*/
 
 SELECT specialty_description AS specialty, 
@@ -75,10 +77,6 @@ FROM prescriber
 GROUP BY specialty_description
 ORDER BY drug_count;
 
-
-/*2. d. **Difficult Bonus:***Do not attempt until you have solved all other problems!* 
-For each specialty, report the percentage of total claims by that specialty which are for opioids. 
-Which specialties have a high percentage of opioids?*/
 
 /*3. a. Which drug (generic_name) had the highest total drug cost?*/
 
